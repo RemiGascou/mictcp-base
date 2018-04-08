@@ -213,7 +213,7 @@ int mic_tcp_core_send(mic_tcp_payload buff)
     if(random > lr_tresh) {
         result = sendto(sys_socket, buff.data, buff.size, 0, (struct sockaddr *)&remote_addr, sizeof(struct sockaddr));
     } else {
-        printf("[MICTCP-CORE] Perte du paquet\n");
+        printf("[\x1b[1m\x1b[93mMICTCP-CORE\x1b[0m] Perte du paquet\n");
     }
 
     return result;
@@ -294,7 +294,7 @@ void* listening(void* arg)
 
     pthread_mutex_init(&lock, NULL);
 
-    printf("[MICTCP-CORE] Demarrage du thread de reception reseau...\n");
+    printf("[\x1b[1m\x1b[93mMICTCP-CORE\x1b[0m] Demarrage du thread de reception reseau...\n");
 
     const int payload_size = 1500 - API_HD_Size;
     pdu_tmp.payload.size = payload_size;
