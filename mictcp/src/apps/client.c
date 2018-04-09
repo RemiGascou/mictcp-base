@@ -13,18 +13,20 @@ int main() {
     addr.ip_addr = "127.0.0.1";
     addr.port = 1234;
 
+    printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Création du socket MICTCP: \n");
     if ((sockfd = mic_tcp_socket(CLIENT)) == -1) {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur à la création du socket MICTCP!\n");
+        printf("\x1b[1m\x1b[91mERROR\x1b[0m\n");
         return 1;
     } else {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Création du socket MICTCP: OK\n");
+        printf("\x1b[1m\x1b[92mOK\x1b[0m\n");
     }
 
+    printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Connexion du socket MICTCP: \n");
     if (mic_tcp_connect(sockfd, addr) == -1) {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur à la connexion du socket MICTCP!\n");
+        printf("\x1b[1m\x1b[91mERROR\x1b[0m\n");
         return 1;
     } else {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Connexion du socket MICTCP: OK\n");
+        printf("\x1b[1m\x1b[92mOK\x1b[0m\n");
     }
 
     memset(chaine, 0, MAX_SIZE);
@@ -39,6 +41,7 @@ int main() {
         if (strncmp(chaine,exit_command,4) != 0) {printf(">>> \x1b[1m");}
     }
 
+    printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Fermeture de la connexion.\n");
     mic_tcp_close(sockfd);
 
     return 0;

@@ -52,5 +52,8 @@ int main() {
         printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Message Recu : \x1b[1m%s\x1b[0m", chaine);
         if (strncmp(chaine,exit_command,4) == 0) {running = 0;}
     }
+
+    printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Fermeture de la connexion.\n");
+    
     return 0;
 }
