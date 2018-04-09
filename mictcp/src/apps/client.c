@@ -14,14 +14,14 @@ int main() {
     addr.port = 1234;
 
     if ((sockfd = mic_tcp_socket(CLIENT)) == -1) {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur a la creation du socket MICTCP!\n");
+        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur à la création du socket MICTCP!\n");
         return 1;
     } else {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Creation du socket MICTCP: OK\n");
+        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Création du socket MICTCP: OK\n");
     }
 
     if (mic_tcp_connect(sockfd, addr) == -1) {
-        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur a la connexion du socket MICTCP!\n");
+        printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Erreur à la connexion du socket MICTCP!\n");
         return 1;
     } else {
         printf("[\x1b[1m\x1b[93m_TSOCK_\x1b[0m] Connexion du socket MICTCP: OK\n");
